@@ -1,3 +1,24 @@
+$media-sm: '(max-width: 799px)';
+$media-lg: '(min-width: 800px)';
+
+$font-base: "Roboto", sans-serif;
+$font-header: "Roboto Slab", serif;
+
+$menu-height:60px;
+
+$text-outline: -1px -1px 0 rgba(0,0,0,0.3),  
+	1px -1px 0 rgba(0,0,0,0.3),
+	-1px 1px 0 rgba(0,0,0,0.3),
+	1px 1px 0 rgba(0,0,0,0.3);
+
+// Outlines
+:root, body, header, nav, a{
+	// outline:1px solid red;
+}
+
+@import "nav.scss";
+
+// Reset
 *{
 	margin:0;
 	border:0;
@@ -14,14 +35,36 @@
 *:focus{
 	outline:none;
 }
-
-:root{
-	font-family:"Georgia", serif;
-	font-size:16px;
-	line-height:1.9em;
-}
 :root, body{
 	width:100vw;
 	max-width:100%;
+	min-height:100vh;
 	overflow-x:hidden;
+}
+div, main, header, section, article{
+	position:relative;
+}
+a{
+	cursor:pointer;
+}
+
+:root{
+	font-family:$font-base;
+	font-size:16px;
+	line-height:1.9em;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family:$font-header;
+}
+main{
+	height:100vh;
+	background-size:cover;
+	background-position:center;
+
+	@media #{$media-sm}{
+		padding-top:$menu-height * 2;
+	}
+	@media #{$media-lg}{
+		padding-top:$menu-height;
+	}
 }
