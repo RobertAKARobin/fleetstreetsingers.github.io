@@ -22,20 +22,17 @@
 	
 	<header class="main-header{% if page.hero-image %} hero{% endif %}">
 		<nav>
-			<div class="nav-directory">
-				<a href="/" class="nav-header">Fleet Street</a>
-				<a href="#">About</a>
-				<a href="#">Schedule</a>
-				<a href="#">Music</a>
-				<a href="#">Contact</a>
-			</div>
-		
-			<div class="nav-social">
-				{% for network in site.data.social %}
-					<a href="{{ network.url }}" style="color: #{{ network.color }}">
-						{{ network.name }}
-						<span class="fab fa-{{ network.icon }}"></span>
-					</a>
+			<a href="/" class="nav-header"><img src="/assets/images/fs_logo.svg" alt="Fleet Street logo" /></a>
+			<div class="nav-links">
+				{% for link in site.directory %}
+				<a href="{{ link.url }}" class="nav-directory">{{ link.name }}</a>
+				{% endfor %}
+				<span class="nav-flex"></span>
+				{% for link in site.social %}
+				<a href="{{ link.url }}" class="nav-social" style="color: #{{ link.color }}">
+					{{ link.name }}
+					<span class="fab fa-{{ link.icon }}"></span>
+				</a>
 				{% endfor %}
 			</div>
 		</nav>
