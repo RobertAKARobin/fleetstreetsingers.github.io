@@ -20,14 +20,16 @@
 </head>
 <body>
 	<nav>
-		<a href="/" class="nav-header"><img src="/assets/images/fs_logo.svg" alt="Fleet Street logo" /></a>
-		<div class="nav-links">
-			{% for link in site.directory %}
-			<a href="{{ link.url }}" class="nav-directory">{{ link.name }}</a>
-			{% endfor %}
-			<span class="nav-flex"></span>
+		<span class="nav-logo">
+			<a href="/"><img src="/assets/images/fs_logo.svg" alt="Fleet Street logo" /></a>
+		</span>
+		{% for link in site.directory %}
+		<a href="{{ link.url }}" class="nav-directory">{{ link.name }}</a>
+		{% endfor %}
+		<hr class="nav-flex" />
+		<div class="nav-social">
 			{% for link in site.social %}
-			<a href="{{ link.url }}" class="nav-social" style="color: #{{ link.color }}">
+			<a href="{{ link.url }}" style="color: #{{ link.color }}">
 				{{ link.name }}
 				<span class="fab fa-{{ link.icon }}"></span>
 			</a>
