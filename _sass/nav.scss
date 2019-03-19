@@ -131,3 +131,74 @@ nav{
 		}
 	}
 }
+footer{
+	background-color:#000;
+	color:#aaa;
+
+	.footer-directory{
+		a{
+			color:#fff;
+			border-bottom:1px dotted #aaa;
+			transition:color 0.2s;
+			&:hover{
+				color:$color-fs-red;
+			}
+		}
+	}
+	.footer-social{
+		a{
+			font-size:0;
+			span{
+				font-size:25px;
+				line-height:30px;
+				transition:color 0.2s;
+			}
+			&:hover{
+				span{
+					color:#fff;
+				}
+			}
+		}
+	}
+
+	@media #{$media-lg}{
+		display:flex;
+		flex-direction:row;
+		align-items:center;
+		padding:$main-padding;
+		
+		.footer-directory{
+			text-align:left;
+			li{
+				display:inline-block;
+			}
+			a{
+				margin-right:10px;
+			}
+		}
+		.footer-flex{
+			flex-grow:1;
+		}
+		.footer-social{
+			text-align:right;
+			a{
+				display:inline-block;
+				span{
+					text-align:right;
+					padding-left:20px;
+				}
+			}
+		}
+	}
+	@media #{$media-sm}{
+		padding:$main-padding;
+		.footer-social{
+			a{
+				display:inline-block;
+				span{
+					padding:10px 10px 10px 0;
+				}
+			}
+		}
+	}
+}
