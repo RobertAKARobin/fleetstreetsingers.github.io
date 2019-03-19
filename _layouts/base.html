@@ -19,34 +19,29 @@
 	<link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 <body>
-	
-	<header class="main-header{% if page.hero-image %} hero{% endif %}">
-		<nav>
-			<a href="/" class="nav-header"><img src="/assets/images/fs_logo.svg" alt="Fleet Street logo" /></a>
-			<div class="nav-links">
-				{% for link in site.directory %}
-				<a href="{{ link.url }}" class="nav-directory">{{ link.name }}</a>
-				{% endfor %}
-				<span class="nav-flex"></span>
-				{% for link in site.social %}
-				<a href="{{ link.url }}" class="nav-social" style="color: #{{ link.color }}">
-					{{ link.name }}
-					<span class="fab fa-{{ link.icon }}"></span>
-				</a>
-				{% endfor %}
-			</div>
-		</nav>
-		<div class="header-content">
-			<h1>{{ page.title }}</h1>
-			<p>{{ page.subtitle }}</p>
+	<nav>
+		<a href="/" class="nav-header"><img src="/assets/images/fs_logo.svg" alt="Fleet Street logo" /></a>
+		<div class="nav-links">
+			{% for link in site.directory %}
+			<a href="{{ link.url }}" class="nav-directory">{{ link.name }}</a>
+			{% endfor %}
+			<span class="nav-flex"></span>
+			{% for link in site.social %}
+			<a href="{{ link.url }}" class="nav-social" style="color: #{{ link.color }}">
+				{{ link.name }}
+				<span class="fab fa-{{ link.icon }}"></span>
+			</a>
+			{% endfor %}
 		</div>
-
-		{% if page.hero-image %}<div class="hero-image" style="background-image: url({{ page.hero-image }}"></div>{% endif %}
-	</header>
+	</nav>
 
 	<main>
 		{{ content }}
 	</main>
+
+	<footer>
+
+	</footer>
 </body>
 {% if jekyll.environment == 'production' and site.google_analytics %}
 <script>
