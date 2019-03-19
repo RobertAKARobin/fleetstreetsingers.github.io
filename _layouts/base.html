@@ -23,12 +23,12 @@
 		<span class="nav-logo">
 			<a href="/"><img src="/assets/images/fs_logo.svg" alt="Fleet Street logo" /></a>
 		</span>
-		{% for link in site.directory %}
+		{% for link in site.data.directory %}
 		<a href="{{ link.url }}" class="nav-directory">{{ link.name }}</a>
 		{% endfor %}
 		<hr class="nav-flex" />
 		<div class="nav-social">
-			{% for link in site.social %}
+			{% for link in site.data.social %}
 			<a href="{{ link.url }}" style="color: #{{ link.color }}">
 				{{ link.name }}
 				<span class="fab fa-{{ link.icon }}"></span>
@@ -45,7 +45,7 @@
 		<div class="footer-info">
 			<ul class="footer-directory">
 				<li><a href="/" class="footer-directory">Home</a></li>
-				{% for link in site.directory %}
+				{% for link in site.data.directory %}
 				<li><a href="{{ link.url }}" class="footer-directory">{{ link.name }}</a></li>
 				{% endfor %}
 			</ul>
@@ -53,7 +53,7 @@
 		</div>
 		<hr class="footer-flex" />
 		<div class="footer-social">
-			{% for link in site.social %}
+			{% for link in site.data.social %}
 			<a href="{{ link.url }}" style="color: #{{ link.color }}">
 				{{ link.name }}
 				<span class="fab fa-{{ link.icon }}"></span>

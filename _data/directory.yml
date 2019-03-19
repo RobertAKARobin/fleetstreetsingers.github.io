@@ -1,0 +1,8 @@
+- name: About
+  url: '/about'
+- name: Schedule
+  url: '#'
+- name: Music
+  url: '#'
+- name: Contact
+  url: '#'
