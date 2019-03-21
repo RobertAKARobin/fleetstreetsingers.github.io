@@ -1,5 +1,5 @@
 - name: About
-  url: '/about'
+  url: '#'
 - name: Schedule
   url: '#'
 - name: Music

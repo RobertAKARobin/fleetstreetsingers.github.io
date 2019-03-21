@@ -7,7 +7,7 @@ $font-header: "Roboto Slab", serif;
 $color-fs-red:#f52463;
 
 $menu-height: 60px;
-$main-padding: 20px;
+$main-padding: 30px;
 $main-radius: 3px;
 
 @mixin text-outline($color){
@@ -51,9 +51,6 @@ $main-radius: 3px;
 div, main, header, section, article{
 	position:relative;
 }
-a{
-	cursor:pointer;
-}
 
 :root{
 	font-family:$font-base;
@@ -62,26 +59,37 @@ a{
 	font-weight:400;
 }
 main{
-	h1,h2,h3,h4,h5,h6{
-		margin-top:2rem;
-		margin-bottom:1rem;
-	}
-	blockquote, table{
-		margin-top:2rem;
-		margin-bottom:2rem;
-	}
-	p, li, pre,
-	ul, ol{
-		margin-top:1rem;
-		margin-bottom:1rem;
+	h1,h2,h3,h4,h5,h6,
+	blockquote, pre,
+	p, dl, ul, ol,
+	iframe, table,
+	hr{
+		margin:1rem $main-padding;
 	}
 	ul, ol{
 		padding-left:$main-padding;
-	
+
 		ul, ol{
-			padding-left:$main-padding * 2; 
+			margin:0;
+		}
+		& > li{
+			margin-bottom:1rem;
+			& > p{
+				margin-left:0;
+				margin-right:0;
+			}
 		}
 	}
+	dl{
+		dl{
+			margin-top:0;
+			margin-bottom:0;
+		}
+		dd{
+			padding-left:$main-padding;
+		}
+	}
+
 	hr{
 		border-bottom:1px solid #ccc;
 	}
@@ -127,25 +135,26 @@ main{
 		color:#666;
 		text-decoration:underline;
 	}
-	li{
+	h1,h2,h3,h4,h5,h6{
+		a{
+			color:#000;
+
+			&:hover{
+				color:$color-fs-red;
+			}
+		}
+	}
+	ul > li{
 		list-style-position:outside;
-		& > p{
-			margin-left: 0;
-		}
-		ul > &{
-			list-style-type:disc;
-		}
-		ol > &{
-			list-style-type:decimal;
-		}
+		list-style-type:disc;
+	}
+	ol > li{
+		list-style-position:outside;
+		list-style-type:decimal;
 	}
 	dt{
 		font-size:1rem;
-		margin-top:1rem;
 		text-decoration:underline;
-	}
-	dd{
-		padding-left:$main-padding;
 	}
 	pre{
 		background-color:#eee;
@@ -169,7 +178,7 @@ main{
 	del{
 		text-decoration:line-through;
 	}
-	a{
+	a[href]{
 		color:$color-fs-red;
 		border-bottom:1px dotted $color-fs-red;
 		transition:color 0.2s;
@@ -187,14 +196,12 @@ main{
 		}
 	}
 	table{
-		overflow:hidden;
-		width:100%;
 		th{
 			font-weight:bold;
 			text-decoration:underline;
 		}
 		th, td{
-			padding:0 0.5em;
+			padding:0 1em;
 		}
 		thead{
 			background-color:#666;
@@ -211,6 +218,9 @@ main{
 		padding-left:1em;
 		color:#666;
 		border-left:1px solid #ccc;
+		p{
+			margin-left:0;
+		}
 	}
 }
 
@@ -225,7 +235,8 @@ header{
 			font-size:36px;
 			line-height:40px;
 			text-align:center;
-			margin:0;
+			margin-top:0;
+			margin-bottom:0;
 		}
 	}
 
@@ -235,18 +246,10 @@ header{
 		justify-content:center;
 		height:100vh;
 		width:100%;
-		padding:0 $main-padding;
-		left:-$main-padding;
 		background-size:cover;
 		background-position:center center;
 		color:#fff;
 		@include text-outline(rgba(0,0,0,0.5));
-
-		top:-($main-padding + $menu-height);
-
-		& + *{
-			margin-top:-$menu-height;
-		}
 
 		&:before{
 			content:' ';
@@ -256,7 +259,7 @@ header{
 			left:0;
 			width:100%;
 			height:100%;
-			background-color:rgba(0,0,0,0.6);
+			background-color:rgba(0,0,0,0.5);
 			z-index:0;
 		}
 		*{
@@ -267,6 +270,92 @@ header{
 main{
 	background-color:#fff;
 	overflow:hidden;
-	padding:$main-padding;
-	padding-bottom:50px;
+
+	& > :first-child{
+		&.hero{
+			margin-top:-($menu-height);
+		}
+		&:not(.hero):not(.newsitem){
+			padding-top:$main-padding;
+			margin-left:$main-padding;
+			margin-right:$main-padding;
+		}
+	}
+}
+.newsitem{
+	@media #{$media-lg}{
+		display:flex;
+		flex-direction:row;
+		min-height:50vh;
+		background-color:#000;
+		& > *{
+			flex-basis:50%;
+			flex-shrink:0;
+			flex-grow:0;
+		}
+		.newsitem-content{
+			align-self:center;
+			box-sizing:border-box;
+			padding-top:2rem;
+			padding-bottom:2rem;
+			color:#fff;
+
+			a{
+				color:#fff;
+
+				&:hover{
+					color:$color-fs-red;
+				}
+			}
+		}
+		.newsitem-image{
+			align-self:stretch;
+			background-color:#ccc;
+			background-size:cover;
+			background-repeat:no-repeat;
+			background-position:center top;
+			border:0 !important;
+		}
+	}
+	@media #{$media-sm}{
+		display:flex;
+		flex-direction:column;
+		background-color:#fff;
+		.newsitem-content{
+			box-sizing:border-box;
+			z-index:10;
+			color:#000;
+			font-weight:bold;
+			text-shadow:1px 1px 0 rgba(255,255,255,0.5);
+			padding:$main-padding 0;
+
+			a{
+				color:#000;
+
+				&:hover{
+					color:$color-fs-red;
+				}
+			}
+		}
+		.newsitem-image{
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:1;
+			width:100%;
+			height:100%;
+			border:0 !important;
+
+			opacity:0.1;
+			transition:opacity 3s, transform 3s;
+			background-size:cover;
+			background-position:center center;
+			background-repeat:no-repeat;
+		}
+		&:hover{
+			.newsitem-image{
+				opacity:0.3;
+			}
+		}
+	}
 }

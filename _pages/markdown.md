@@ -270,7 +270,12 @@ You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
 <dl>
   <dt>Definition list</dt>
   <dd>Is something people use sometimes.</dd>
-  <dd>Is something people use sometimes.</dd>
+  <dd>Is something
+    <dl>
+      <dt>people use</dt>
+      <dd>sometimes.</dd>
+    </dl>
+  </dd>
 
   <dt>Markdown in HTML</dt>
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
@@ -280,7 +285,12 @@ You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
 <dl>
   <dt>Definition list</dt>
   <dd>Is something people use sometimes.</dd>
-  <dd>Is something people use sometimes.</dd>
+  <dd>Is something
+    <dl>
+      <dt>people use</dt>
+      <dd>sometimes.</dd>
+    </dl>
+  </dd>
 
   <dt>Markdown in HTML</dt>
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
