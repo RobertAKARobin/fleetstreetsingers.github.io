@@ -1,5 +1,4 @@
 # Build settings
-google_analytics: true
 include: 
   - _pages
 exclude:
@@ -13,7 +12,8 @@ exclude:
 plugins:
   - jekyll-tidy
 markdown: kramdown
-highlighter: none
+google_analytics: true
+highlighter: rouge
 kramdown:
   syntax_highlighter_opts:
     disable: true
