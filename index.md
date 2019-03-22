@@ -5,19 +5,19 @@
 	include hero.html
 	title="Fleet Street"
 	image="/assets/images/lean-wall.jpg"
-	subtitle="Complete perfection.
+	subtitle="Lorem ipsum dolor sit amet.
 
-Sweet beats flying in your direction."
+Consectetur adipiscing elit."
 %}
 
 {%
 	include newsitem.html
-	title="Upcoming Performances"
+	title="Project 1"
 	image="/assets/images/fs_group.jpg"
-	content="Come see Fleet Street perform at:
+	content="Lorem ipsum dolor sit amet:
 
-- Claw-Cappella, a weekly performance on Fridays at 4:30 pm outside the Stanford Bookstore and in front of the Claw Fountain.
-- Spring Show on May 4th in Dinkelspiel Auditorium."
+- Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 %}
 
 {%
