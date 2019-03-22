@@ -34,6 +34,13 @@ Consectetur adipiscing elit."
 %}
 
 {%
+	include video.html
+	title="Music Video Title"
+	link="https://www.youtube.com/embed/HEtDtmJAFaY"
+	image="/assets/images/regional_treasure.jpg"
+%}
+
+{%
 	include spread.html
 	width="full"
 	title="Project 3"
