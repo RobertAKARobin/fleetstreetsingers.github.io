@@ -461,4 +461,17 @@ main{
 	iframe{
 		display:none;
 	}
+
+	&.active{
+		.video-title,
+		.video-trigger,
+		.video-image{
+			display:none;
+		}
+		iframe{
+			display:block;
+			width:100%;
+			height:100%;
+		}
+	}
 }

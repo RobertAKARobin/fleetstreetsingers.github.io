@@ -1,6 +1,6 @@
 <section class="video">
 	<h2 class="video-title">{{ include.title }}</h2>
-	<a onclick="triggerVideo()" class="video-trigger fas fa-play"></a>
-	<a onclick="triggerVideo()" class="video-image" style="background-image:url({{ include.image }})"></a>
-	<iframe width="300" height="200" data-src="{{ include.link }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<a onclick="triggerVideo(this)" class="video-trigger fas fa-play"></a>
+	<a onclick="triggerVideo(this)" class="video-image" style="background-image:url({{ include.image }})"></a>
+	<iframe width="300" height="200" data-src="{{ include.link }}?autoplay=1&controls=0&modestbranding=1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
